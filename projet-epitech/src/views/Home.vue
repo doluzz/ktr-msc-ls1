@@ -15,7 +15,7 @@
                 <button @click="pathCo">Pour se connecter</button>
             </p>
             <p>
-                <button @click="pathIns">Pour s'inscrire'</button>
+                <button @click="pathIns">Pour s'inscrire</button>
             </p>
         </div>
 

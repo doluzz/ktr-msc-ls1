@@ -8,30 +8,36 @@
         <p>
             <button @click="addCarte">Nouvelle carte</button>
         </p>
-        <div>
+        <div v-if="cartes.nbCarte">
+            <div class="bold">
+                <p>Vos cartes : </p>
+            </div>
             <ul>
-                <li v-if="cartes.carte1">Nom {{cartes.carte1.name}} Nom Entreprise {{cartes.carte1.compagny}} Email {{cartes.carte1.email}} Téléphone {{cartes.carte1.phone}}
+                <li class="liC" v-if="cartes.carte1">Nom : {{cartes.carte1.name}} <br> Nom Entreprise : {{cartes.carte1.compagny}} <br> Email : {{cartes.carte1.email}} <br> Téléphone : {{cartes.carte1.phone}}
                 </li>
-                <li v-if="cartes.carte2">Nom {{cartes.carte2.name}} Nom Entreprise {{cartes.carte2.compagny}} Email {{cartes.carte2.email}} Téléphone {{cartes.carte2.phone}}
+                <li class="liC" v-if="cartes.carte2">Nom : {{cartes.carte2.name}} <br> Nom Entreprise : {{cartes.carte2.compagny}} <br> Email : {{cartes.carte2.email}} <br> Téléphone : {{cartes.carte2.phone}}
                 </li>
-                <li v-if="cartes.carte3">Nom {{cartes.carte3.name}} Nom Entreprise {{cartes.carte3.compagny}} Email {{cartes.carte3.email}} Téléphone {{cartes.carte3.phone}}
+                <li class="liC" v-if="cartes.carte3">Nom : {{cartes.carte3.name}} <br> Nom Entreprise : {{cartes.carte3.compagny}} <br> Email : {{cartes.carte3.email}} <br> Téléphone : {{cartes.carte3.phone}}
                 </li>
             </ul>
         </div>
-        Suivre les cartes votre ami <input v-model="followCard">
+        <div>
+            <h3 class="marIn"> Suivez les cartes votre ami <br> </h3>
+            <input v-model="followCard">
+        </div>
         <p>
             <button @click="follow">Follow</button>
         </p>
-        <div>
+        <div class="bold" v-if="cartes.followFriend">
             <p>Vous suivez : {{cartes.followFriend}}</p>
         </div>
         <div>
             <ul>
-                <li v-if="followList.carte1">Nom {{followList.carte1.name}} Nom Entreprise {{followList.carte1.compagny}} Email {{followList.carte1.email}} Téléphone {{followList.carte1.phone}}
+                <li class="liC" v-if="followList.carte1">Nom : {{followList.carte1.name}} <br> Nom Entreprise : {{followList.carte1.compagny}} <br> Email : {{followList.carte1.email}} <br> Téléphone : {{followList.carte1.phone}}
                 </li>
-                <li v-if="followList.carte2">Nom {{followList.carte2.name}} Nom Entreprise {{followList.carte2.compagny}} Email {{followList.carte2.email}} Téléphone {{followList.carte2.phone}}
+                <li class="liC" v-if="followList.carte2">Nom : {{followList.carte2.name}} <br> Nom Entreprise : {{followList.carte2.compagny}} <br> Email : {{followList.carte2.email}} <br> Téléphone : {{followList.carte2.phone}}
                 </li>
-                <li v-if="followList.carte3">Nom {{followList.carte3.name}} Nom Entreprise {{followList.carte3.compagny}} Email {{followList.carte3.email}} Téléphone {{followList.carte3.phone}}
+                <li class="liC" v-if="followList.carte3">Nom : {{followList.carte3.name}} <br> Nom Entreprise : {{followList.carte3.compagny}} <br> Email : {{followList.carte3.email}} <br> Téléphone : {{followList.carte3.phone}}
                 </li>
             </ul>
         </div>
@@ -81,7 +87,6 @@ export default {
     },
     methods: {
         async addCarte() {
-            console.log("lzzza")
             var regex = /^[A-Za-z0-9_-]{3,30}$/
             console.log("la")
             if (regex.test(this.entrCarte)) {
@@ -141,5 +146,16 @@ export default {
 </script>
 
 <style>
+.liC {
+    margin-bottom: 2%;
+    list-style-type:none;
+}
+.bold {
+    font-weight: bold
+}
+.marIn {
+    margin-bottom: 1%;
+    text-decoration: underline;
+}
 </style>
 
